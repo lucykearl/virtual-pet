@@ -33,10 +33,15 @@ Pet.prototype.walk = function() {
 };
 
 Pet.prototype.feed = function() {
+    if (!this.isAlive) {
+        throw new Error('Your pet is no longer alive');
+    }
+
     this.hunger -= 3;
     if (this.hunger < minHunger){
         this.hunger = minHunger;
     }
+}
 
 Pet.prototype.checkUp = function() {
     if (this.fitness <= fitnessBreakPoint){
@@ -55,7 +60,7 @@ Pet.prototype.checkUp = function() {
         return 'I feel great';
     }
 };
-}
+
 
 
     module.exports = Pet;
