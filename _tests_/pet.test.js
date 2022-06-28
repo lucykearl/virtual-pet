@@ -125,3 +125,15 @@ describe('checkUp', () => {
         expect(pet.checkUp()).toEqual('I feel great');
     });
 })
+
+describe('isAlive', () => {
+    it('returns false if pet hunger is 10 or more, fitness 0 or less or age is 30 or more', () => {
+        const pet = new Pet('fido');
+
+        pet.hunger = 11;
+        pet.fitness = 0;
+        pet.age = 31;
+
+        expect(pet.isAlive).toEqual(false);
+    });
+});
